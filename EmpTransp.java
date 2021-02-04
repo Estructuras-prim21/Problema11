@@ -84,14 +84,14 @@ public class EmpTransp {
                     
             }
         
-         if(encontre){
-            if(disp)
-                return camiones[i].getClass().getSimpleName();
+            if(encontre){
+                if(disp)
+                    return camiones[i].getClass().getSimpleName();
+                else
+                    return ("No está disponible");
+            }
             else
-                return ("No está disponible");
-        }
-         else
-             return ("No existe");
+                return ("No existe");
         }
     
         //pregunta 4
