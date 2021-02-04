@@ -67,6 +67,24 @@ public class EmpTransp {
         }
         return resp;
     }
+    
+    //2))
+    public boolean indicaCupoEscolares(int cantN, int cantC){ //cant camiones y cant niños
+        boolean resp=false;
+        int i, contC=0, contN=0;
+        
+        for(i=0;i<totalCam;i++)
+            if(camiones[i]instanceof Escolar){
+                contC++;
+                if (camiones[i].getTotalPasj()>= cantN)
+                    contN++; //si la capacidad de pasajeros es mayor a la que piden, aumenta el contador de camiones que pueden llevar esa capacidad      
+            }
+        
+        if(contC >= cantC && contN >= cantN){
+            resp=true;
+        }
+        
+        return resp;
         
     }
     
