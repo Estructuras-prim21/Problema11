@@ -20,6 +20,13 @@ public class Escolar extends DePasajeros {
         super(totalPasj, marca, numMotor, placas, costo);
         this.lugarProyecto = lugarProyecto;
     }
+     public int getTotalPasajEscolar() {
+        return getTotalPasaj();
+    } 
+     
+    public double getCostoCamionEscolar() {
+        return getCostoCamionDePasajeros();
+    }
     
     public double calculaCostoServicio(){
         double costo;
