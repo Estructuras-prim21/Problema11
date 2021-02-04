@@ -36,6 +36,10 @@ public abstract class DePasajeros extends Camion {
         return totalPasj;
     }
     
+     public double getCostoCamionDePasajeros() {
+        return getCostoCamion();
+    }
+    
     
 
     
