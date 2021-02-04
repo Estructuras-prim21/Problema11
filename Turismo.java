@@ -3,82 +3,67 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Problema11;
+package emptransp;
 
 /**
  *
- * @author ewara
+ * @author Patricia
  */
-public class Turismo extends DePasajeros {
+public class Turismo extends DePasajeros{
     private boolean asientoCama;
     private boolean serviBar;
 
     public Turismo() {
         super();
+        
+    }
+
+    public Turismo(boolean asientoCama, boolean serviBar, int totalPasaj, String marca, String numMotor, String placas, double costoCamion, boolean disponible) {
+        super(totalPasaj, marca, numMotor, placas, costoCamion,disponible);
+        this.asientoCama = asientoCama;
+        this.serviBar = serviBar;
     }
     
-    public Turismo(String marca, String numMotor, String placas, double costoCamion, int totalPasaj, boolean asientoCama, boolean serviBar) {
-        super( marca,  numMotor, placas, costoCamion, totalPasaj);
-        this.asientoCama=asientoCama;
-        this.serviBar=serviBar;
-    }
-    
-     @Override
-     public String toString() {
-       StringBuilder cad=new StringBuilder();
+    public String toString(){
+        StringBuilder sb;
+        sb= new StringBuilder();
+        
+        sb.append(super.toString());
+        if(asientoCama)
+            sb.append("Cuenta con asiento cama \n");
+        else
+            sb.append("No cuenta con asiento cama \n");
+        if(serviBar)
+            sb.append("Cuenta con servicio de Bar \n");
+        else
+            sb.append("No cuenta con servicio de Bar \n");
+        
+        return sb.toString();
+        
        
-       cad.append(super.toString()); 
-       cad.append("\nAsiento Cama: "+asientoCama);
-       cad.append("\nServicio Bar: "+serviBar);
-       
-       return cad.toString();
-    }
-    public int getTotalPasajTurismo() {
-        return getTotalPasaj();
-    } 
-     
-    public double getCostoCamionTurismo() {
-        return getCostoCamionDePasajeros();
     }
 
     public boolean isAsientoCama() {
         return asientoCama;
     }
 
-    public void setAsientoCama(boolean asientoCama) {
-        this.asientoCama = asientoCama;
-    }
-
     public boolean isServiBar() {
         return serviBar;
     }
-
-    public void setServiBar(boolean serviBar) {
-        this.serviBar = serviBar;
-    }
     
-    public boolean hayServiBar(){
-        boolean resp=false;
-        if(isServiBar()==true){
-            resp=true;
+    
+    
+    public double calculaCostoServicio(double km){
+        double costo=super.calculaCostoServicio(km);
+        
+        if(isAsientoCama()){
+            costo=costo*1.05;
         }
-        return resp;
-    }
-    public double calculaCostoServicio(double kilometros){
-        double total, costo, pasajeros;
-        costo=getCostoCamionTurismo();
-        pasajeros=getTotalPasajTurismo();
-        total=((0.01*costo)/pasajeros)*kilometros;
-        if(asientoCama){
-            total=+(5*costo);
+        if(isServiBar()){
+            costo=costo*1.05;
         }
-        if(serviBar){
-            total=+(5*costo);
-        }
-        return total;
+        
+        return costo;
     }
-    
-    
-    
     
 }
