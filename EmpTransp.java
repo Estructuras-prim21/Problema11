@@ -24,7 +24,26 @@ public class EmpTransp {
         this();
         this.nombre = nombre;
     }
-    
+    // 1
+      public String rentaCamionTuristas(int totalPasaj, double km){
+       StringBuilder sb=new StringBuilder();
+       int i;
+       
+       /*i=0;
+       while(i<ocupados && camiones[i].getTotalPasaj()!=totalPasaj)
+           i++;
+       
+       if(i<ocupados && camiones[i]instanceof Turismo){*/
+           for(i=0;i<ocupados;i++)
+               if(camiones[i]instanceof Turismo && camiones[i].getTotalPasaj()==totalPasaj){
+               sb.append(((Turismo)camiones[i]).toString()+"\n");
+               sb.append(" ");
+               sb.append("El costo del servicio es de: $"+((Turismo)camiones[i]).calculaCostoServicio(km));
+               }
+           
+       
+       return sb.toString();
+   }
     //3 ejercicio
     public String estaDisponible(String placas){
         int i=0;
