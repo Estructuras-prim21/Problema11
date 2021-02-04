@@ -66,4 +66,13 @@ public class Turismo extends DePasajeros{
         return costo;
     }
     
+    //Para el ejercico 5
+    public boolean hayServiBar(){
+        boolean resp=false;
+        if(isServiBar()==true){
+            resp=true;
+        }
+        return resp;
+    }
+    
 }
