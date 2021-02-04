@@ -54,7 +54,19 @@ public class EmpTransp {
         }
         
        
-        
+        //pregunta 4
+    public String escolarProy20 (){
+        String resp= "No hay camiones escolares que lleven mas de 20 alumnos y tengan espacio para proyectos";
+   
+        for(int i=0; i<totalCamiones; i++){
+            if(camiones[i] instanceof Escolar){
+                if(((Escolar)camiones[i]).isLugarProyecto()&& camiones[i].getTotalPasaj()>20){
+                    resp=camiones[i].getPlacas() + "\n";
+                }
+            }
+        }
+        return resp;
+    }
         
     }
     
