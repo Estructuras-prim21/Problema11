@@ -24,6 +24,10 @@ public class Escolar extends DePasajeros{
         this.lugarProyecto = lugarProyecto;
     }
     
+     public boolean isLugarProyecto() {
+        return lugarProyecto;
+    }
+    
     public double calculaCostoServicio(){
         double costo;
         costo= ((super.getCostoCamion()*0.0001)/super.getTotalPasaj())*250;
