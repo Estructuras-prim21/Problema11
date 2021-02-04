@@ -11,13 +11,13 @@ package Problema11;
  */
 public class EmpTransp {
   private String nombreEmpresa;
-    private Camion[] camiones;
+    private DePasajeros[] camiones;
     private int totalCam;
     private int MAX=100;
 
     public EmpTransp() {
         totalCam=0;
-        camiones= new Camion[MAX];
+        camiones= new DePasajeros[MAX];
     }
     
     public EmpTransp(String nombreEmpresa){
