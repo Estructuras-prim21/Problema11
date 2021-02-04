@@ -87,6 +87,24 @@ public class EmpTransp {
         return resp;
         
     }
+    //5
+    public double totalCamiones(String marca, double kilometros, double costo){
+        double contador = 0;
+        int posicion=-1;
+        int i=0;
+        boolean resp=false;
+        
+        while(i<totalCam && !camiones[i].getMarca().equalsIgnoreCase(marca)){
+           posicion = i;
+       }
+        if(i<totalCam && camiones[i]instanceof Turismo){
+         resp=true;
+             if(((Turismo)camiones[posicion]).hayServiBar() && ((Turismo)camiones[posicion]).calculaCostoServicio(kilometros)< costo){
+            contador ++;
+             }
+         }  
+       return contador;
+    }
     
     
     
