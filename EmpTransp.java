@@ -71,4 +71,25 @@ public class EmpTransp {
        return sb.toString();
    }
     
+    //5) Obtener y regresar el total de camiones de una cierta marca (la marca se recibe como parámetro), destinados al 
+    //transporte de turistas que cuenten con servicio de bar y que el costo del servicio sea inferior a una cantidad recibida
+    //como parámetro. También se recibe como parámetro la cantidad de kilómetros a recorrer.
+    public double totalCamiones(String marca, double kilometros, double costo){
+        double contador = 0;
+        int posicion=-1;
+        int i=0;
+        boolean resp=false;
+        
+        while(i<totalCam && !camiones[i].getMarca().equalsIgnoreCase(marca)){
+           posicion = i;
+       }
+        if(i<totalCam && camiones[i]instanceof Turismo){
+         resp=true;
+             if(((Turismo)camiones[posicion]).hayServiBar() && ((Turismo)camiones[posicion]).calculaCostoServicio(kilometros)< costo){
+            contador ++;
+             }
+         }  
+       return contador;
+    }
+    
 }
