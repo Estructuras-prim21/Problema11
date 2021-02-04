@@ -116,7 +116,7 @@ public class EmpTransp {
         int i=0;
         boolean resp=false;
         
-        while(i<totalCam && !camiones[i].getMarca().equalsIgnoreCase(marca)){
+        while(i<totalCam && camiones[i].getMarca().equalsIgnoreCase(marca)){
            posicion = i;
        }
         if(i<totalCam && camiones[i]instanceof Turismo){
